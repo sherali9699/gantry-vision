@@ -320,6 +320,8 @@ class VisionPipeline:
                 "color": color_name,
                 "angle": dominant_angle,
                 "center": (cx, cy),
+                "w": w,
+                "h": h,
                 "rect": rect,
                 "box_points": box,
                 "real_world": (real_x, real_y, real_angle)
@@ -361,4 +363,5 @@ class VisionPipeline:
             cv2.line(top_down_img, (0, y), (self.output_w, y), (50, 50, 50), 1)
 
         # return output_image, vis_angle
-        return output_image, top_down_img
+        return output_image, top_down_img, detections
+        #return output_image, top_down_img

@@ -12,8 +12,9 @@ def run_vision():
 
     vision = VisionPipeline()
 
-    cap = cv2.VideoCapture(VisionConfig.CAMERA_ID)
+    #cap = cv2.VideoCapture(VisionConfig.CAMERA_ID)
     #cap = cv2.VideoCapture("./videos/vision-recording-homography.avi")
+    cap = cv2.VideoCapture(2)
 
     cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, VisionConfig.CAMERA_WIDTH)
@@ -21,6 +22,7 @@ def run_vision():
     cap.set(cv2.CAP_PROP_FPS, VisionConfig.CAMERA_FPS)
 
     prev_time = 0
+    count = 0
 
     while True:
 
@@ -45,6 +47,14 @@ def run_vision():
 
         cv2.imshow("TopDown",
                    cv2.resize(top_down_view,(0,0),fx=0.6,fy=0.6))
+
+        # Capture key press ONCE
+        key = cv2.waitKey(1) & 0xFF
+
+        if key == ord('s'): 
+            cv2.imwrite(f'./calib-images/calib_{count}.jpg', frame)
+            print(f"Saved: calib_{count}.jpg") # Debug print to confirm
+            count += 1
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -106,7 +116,7 @@ def run_recording():
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
 
     out = cv2.VideoWriter(
-        "vision-recording.avi",
+        "vision-recording-chessboard.avi",
         fourcc,
         VisionConfig.CAMERA_FPS,
         (VisionConfig.CAMERA_WIDTH, VisionConfig.CAMERA_HEIGHT)
