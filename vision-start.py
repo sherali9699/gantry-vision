@@ -6,7 +6,7 @@ from vision_drivers import run_camera_test
 
 def main():
 
-    MODE = "vision"  # Change this to "vision", "sensor", "record", or "camera_test"
+    MODE = "camera_test"  # Change this to "vision", "sensor", "record", or "camera_test"
 
     if MODE == "vision":
         run_vision()
