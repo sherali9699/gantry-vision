@@ -3,17 +3,17 @@ import numpy as np
 import os
 
 # 1. Load the calibration parameters you just generated
-if not os.path.exists("camera_params.npz"):
-    print("Error: camera_params.npz not found!")
+if not os.path.exists("camera_params_non_fisheye.npz"):
+    print("Error: camera_params_non_fisheye.npz not found!")
     exit()
 
-data = np.load("camera_params.npz")
+data = np.load("camera_params_non_fisheye.npz")
 mtx = data['mtx']
 dist = data['dist']
 
 # 2. Load your raw fisheye image
 #img_path='./calib-images/im_09.png'  # Change this to your actual image path
-img_path = './gantry_real_images/image08.jpeg'  # Change this to your actual image path
+img_path = './ir_captures/test.png'  # Change this to your actual image path
 img = cv2.imread(img_path)
 
 if img is None:

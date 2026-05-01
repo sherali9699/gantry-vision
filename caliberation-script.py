@@ -4,8 +4,8 @@ import glob
 
 # 1. Configuration - CHANGE THESE TO MATCH YOUR PRINTED PATTERN
 # If you have a 10x7 squares board, the INNER corners are 9x6
-CHESSBOARD_SIZE = (7, 5) 
-SQUARE_SIZE_MM = 28.0  # Measure one square with your calipers
+CHESSBOARD_SIZE = (8, 5) 
+SQUARE_SIZE_MM = 30.0  # Measure one square with your calipers
 
 # Stop criteria for sub-pixel refinement
 criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -19,7 +19,7 @@ objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane
 
 # Load your images
-images = glob.glob('./calib-images/*.png')
+images = glob.glob('./ir_captures/*.png')
 
 for fname in images:
     img = cv2.imread(fname)
@@ -52,7 +52,7 @@ if ret:
     print("\nDistortion Coefficients (D):\n", dist)
     
     # SAVE THE DATA
-    np.savez("camera_params.npz", mtx=mtx, dist=dist)
+    np.savez("camera_params_non_fisheye.npz", mtx=mtx, dist=dist)
     print("\nParameters saved to camera_params.npz")
 else:
     print("Calibration failed. Check your CHESSBOARD_SIZE.")
