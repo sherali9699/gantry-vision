@@ -26,10 +26,10 @@ all_charuco_ids = []
 image_size = None
 
 # 2. Process Images
-images = glob.glob('./charuco-calib-captures/*.png')
+images = glob.glob('./charuco-calib-fisheye-captures/*.png')
 
 if not images:
-    print("No images found in ./charuco-calib-captures/")
+    print("No images found in ./charuco-calib-fisheye-captures/")
     exit()
 
 for fname in images:
@@ -86,7 +86,7 @@ if len(all_charuco_corners) > 0:
         print("\nCamera Matrix (K):\n", mtx)
         print("\nDistortion Coefficients (D):\n", dist)
         
-        np.savez("camera_params_non_fisheye.npz", mtx=mtx, dist=dist)
+        np.savez("camera_params_fisheye.npz", mtx=mtx, dist=dist)
         print("\nParameters saved to camera_params_non_fisheye.npz")
     else:
         print("Calibration failed.")

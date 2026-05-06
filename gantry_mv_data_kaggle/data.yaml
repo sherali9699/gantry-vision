@@ -1,0 +1,6 @@
+path: /kaggle/input/gantry_upload
+train: train/images
+val: val/images
+
+nc: 1
+names: ['MicroWave']

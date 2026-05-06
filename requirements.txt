@@ -2,3 +2,4 @@ numpy
 pybullet
 opencv-python
 opencv-python
+ultralytics

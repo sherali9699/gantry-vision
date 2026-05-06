@@ -7,7 +7,7 @@ import sys
 # ──────────────────────────────────────────────
 # 1. Configuration & Calibration Data
 # ──────────────────────────────────────────────
-CALIB_FILE = "camera_params_non_fisheye.npz"
+CALIB_FILE = "camera_params_fisheye.npz"
 
 # Board Configuration (MUST match your calibration exactly)
 SQUARE_LENGTH = 48.0 / 1000  

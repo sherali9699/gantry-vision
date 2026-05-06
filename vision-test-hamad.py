@@ -71,7 +71,7 @@ def run(device: str, width: int, height: int, strength: float, show_original: bo
     cap = open_camera(device, width, height)
     
     # Create a directory for captures
-    output_dir = "charuco-calib-captures"
+    output_dir = "yolo-train-images"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

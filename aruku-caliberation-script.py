@@ -19,7 +19,7 @@ objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane
 
 # Load your images
-images = glob.glob('./ir_captures/*.png')
+images = glob.glob('./calib-captures-fisheye-aruku/*.png')
 
 for fname in images:
     img = cv2.imread(fname)
@@ -52,7 +52,7 @@ if ret:
     print("\nDistortion Coefficients (D):\n", dist)
     
     # SAVE THE DATA
-    np.savez("camera_params_non_fisheye.npz", mtx=mtx, dist=dist)
-    print("\nParameters saved to camera_params.npz")
+    np.savez("camera_params_fisheye_aruku.npz", mtx=mtx, dist=dist)
+    print("\nParameters saved to camera_params_fisheye_aruku.npz")
 else:
     print("Calibration failed. Check your CHESSBOARD_SIZE.")
