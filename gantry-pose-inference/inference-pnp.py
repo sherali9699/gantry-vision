@@ -14,9 +14,9 @@ import matplotlib.pyplot as plt
 # USER CONFIG
 # ============================================================
 
-MODEL_PATH = "best.pt"
+MODEL_PATH = "best_26n_extended.pt"
 CALIB_FILE = "camera_params_fisheye_aruko.npz"
-IMAGE_PATH = "test-image-02.png"
+IMAGE_PATH = "test5.png"
 
 # Real microwave top-face dimensions in meters
 # Change these if your measurements are different
@@ -27,7 +27,7 @@ MW_DEPTH = 0.61   # front-back depth
 CONF_THRESH = 0.30
 
 # Output image
-OUTPUT_PATH = "pnp_result.jpg"
+OUTPUT_PATH = "pnp_result_04.png"
 
 
 # ============================================================

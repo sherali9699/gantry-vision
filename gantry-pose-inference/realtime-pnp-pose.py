@@ -394,7 +394,7 @@ def run(
 
     cap = open_camera(device, width, height)
 
-    output_dir = "realtime_pose_captures"
+    output_dir = "realtime_pose_captures_version02"
     os.makedirs(output_dir, exist_ok=True)
 
     win_name = "Realtime Microwave Pose — Q quit | S save | P pose on/off | O original | +/- strength"
@@ -445,7 +445,6 @@ def run(
             cv2.FONT_HERSHEY_SIMPLEX,
             0.8,
             (0, 255, 0),
-            2
         )
 
         if show_original:
@@ -526,7 +525,7 @@ if __name__ == "__main__":
     parser.add_argument("--width", type=int, default=1920)
     parser.add_argument("--height", type=int, default=1080)
 
-    parser.add_argument("--model", default="best.pt")
+    parser.add_argument("--model", default="best_26n_extended .pt")
     parser.add_argument("--calib", default="camera_params_fisheye_aruko.npz")
 
     parser.add_argument("--mw-width", type=float, default=0.44, help="Microwave top-face width in meters")
